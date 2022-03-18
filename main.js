@@ -14,17 +14,14 @@ class Character {
   }
   //metoder för jämförelse;
   compareHeight(char) {
-    if (parseInt(this.Height) === parseInt(char.Height)) {
+    let myHeight = parseInt(this.Height);
+    let yourHeight = parseInt(char.Height);
+    if ( myHeight === yourHeight ) {
       return `${char.Name} is the same length as I am!`;
-    } else if (parseInt(this.Height) < parseInt(char.Height)) {
-      return `${char.Name} is ${
-        parseInt(char.Height) - parseInt(this.Height)
-      }cm taller than me!`;
-    } else {
-      return `I'm ${
-        parseInt(this.Height) - parseInt(char.Height)
-      }cm taller than ${char.Name}!`;
-    }
+    } else if (myHeight < yourHeight) {
+      return `${char.Name} is ${yourHeight - myHeight}cm taller than me!`;
+    } else { 
+      return `I'm ${ myHeight - yourHeight }cm taller than ${char.Name}!`;}
   }
   compareWeight(char) {
     let mass1 = parseInt(this.Mass.split(",").join(""));
@@ -37,7 +34,6 @@ class Character {
       return `I wheigh ${mass1 - mass2}kg more than ${char.Name}!`;
     }
   }
-  //DONE
   compareHairColor(char) {
     if (this.HairColor === "n/a") {
       if (char.HairColor === "n/a") {
@@ -84,26 +80,13 @@ document.querySelector(".form").addEventListener("submit", (x) => {
 const fetchCharacter = async (value) => {
   //console.log(value);
   try {
-    const {
-      data: {
-        results: {
-          0: { name, gender, height, mass, hair_color },
-        },
+    const { data: { results: { 0: { name, gender, height, mass, hair_color },},
       },
     } = await axios.get(`https://swapi.dev/api/people`, {
-      params: {
-        search: value,
-      },
+      params: { search: value, },
     });
-    const pictureURL = getThatPicture(value);
-    const character = new Character(
-      name,
-      gender,
-      height,
-      mass,
-      hair_color,
-      pictureURL
-    );
+    const pictureURL = `./img/${name.split(' ')[0]}.jpg`;
+    const character = new Character(name, gender, height, mass, hair_color, pictureURL);
     return character;
   } catch (error) {
     console.log(error);
@@ -128,7 +111,6 @@ function addButtonEvent(char1, char2, buttonsDiv) {
   weightBtn.classList = "button";
   weightBtn.innerHTML = "COMPARE WIEGHT";
   weightBtn.addEventListener("click", (x) => {
-    console.log(x.target.parentElement.parentElement.lastElementChild);
     x.target.parentElement.parentElement.lastElementChild.innerHTML =
       char1.compareWeight(char2);
   });
@@ -136,7 +118,6 @@ function addButtonEvent(char1, char2, buttonsDiv) {
   heightBtn.classList = "button";
   heightBtn.innerHTML = "COMPARE HEIGHT";
   heightBtn.addEventListener("click", (x) => {
-    console.log(x.target.parentElement.parentElement.lastElementChild);
     x.target.parentElement.parentElement.lastElementChild.innerHTML =
       char1.compareHeight(char2);
   });
@@ -144,7 +125,6 @@ function addButtonEvent(char1, char2, buttonsDiv) {
   hairColorBtn.classList = "button";
   hairColorBtn.innerHTML = "COMPARE HAIR";
   hairColorBtn.addEventListener("click", (x) => {
-    console.log(x.target.parentElement.parentElement.lastElementChild);
     x.target.parentElement.parentElement.lastElementChild.innerHTML =
       char1.compareHairColor(char2);
   });
@@ -152,33 +132,8 @@ function addButtonEvent(char1, char2, buttonsDiv) {
   genderBtn.classList = "button";
   genderBtn.innerHTML = "COMPARE GENDER";
   genderBtn.addEventListener("click", (x) => {
-    console.log(x.target.parentElement.parentElement.lastElementChild);
     x.target.parentElement.parentElement.lastElementChild.innerHTML =
       char1.compareGender(char2);
   });
   buttonsDiv.append(weightBtn, heightBtn, hairColorBtn, genderBtn);
-}
-
-function getThatPicture(value) {
-  //Är det såhär man gör? det verkade svårt att göra en automatiserad bildgoogling
-  switch (value) {
-    case "Luke Skywalker":
-      return "./img/LUKE.jpg";
-    case "Yoda":
-      return "./img/YODA.jpg";
-    case "R2-D2":
-      return "./img/R2D2.jpg";
-    case "Darth Vader":
-      return "./img/DARTH.jpg";
-    case "Leia Organa":
-      return "./img/LEIA.jpg";
-    case "Obi-Wan Kenobi":
-      return "./img/OBI.jpg";
-    case "Han Solo":
-      return "./img/HAN_SOLO.jpg";
-    case "Jabba":
-      return "./img/JABBA.jpg";
-    default:
-      return "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bbyoda-1575303784.jpeg?crop=1xw:0.8888888888888888xh;center,top&resize=1200:*";
-  }
 }
