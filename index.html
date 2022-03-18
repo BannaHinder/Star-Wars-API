@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poller+One&family=Roboto+Mono:wght@600&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <img class="logo" src="./img/Star_Wars_Yellow_Logo.png" alt="Star-Wars-API-logo" />
+      <form action="" class="form">
+        <label for="character-select">Choose 1 character</label>
+        <select name="character-select" id="select1">
+          <option value="Luke Skywalker">Luke Skywalker</option>
+          <option value="Yoda">Yoda</option>
+          <option value="R2-D2">R2-D2</option>
+          <option value="Darth Vader">Darth Vader</option>
+          <option value="Leia Organa">Princess Leia</option>
+          <option value="Obi-Wan Kenobi">Obi-Wan Kenobi</option>
+          <option value="Han Solo">Han Solo</option>
+          <option value="Jabba">Jabba de Hut</option>
+        </select>
+        <br />
+        <label for="character-select">Choose another character</label>
+        <select name="character-select" id="select2">
+          <option value="Luke Skywalker">Luke Skywalker</option>
+          <option value="Yoda">Yoda</option>
+          <option value="R2-D2">R2-D2</option>
+          <option value="Darth Vader">Darth Vader</option>
+          <option value="Leia Organa">Princess Leia</option>
+          <option value="Obi-Wan Kenobi">Obi-Wan Kenobi</option>
+          <option value="Han Solo">Han Solo</option>
+          <option value="Jabba">Jabba de Hut</option>
+        </select>
+        <br />
+        <input
+          type="submit"
+          class="button"
+          value="Fetch me these Star Wars HUNKS"
+        />
+      </form>
+
+      <main class="container hide">
+        <section class="char1">
+          <h2 class="name1"></h2>
+          <div class="img1"></div>
+          <div class="buttons1"></div>
+        </section>
+        <section class="char2">
+          <h2 class="name2"></h2>
+          <div class="img2"></div>
+          <div class="buttons2"></div>
+        </section>
+      </main>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #e2c21e;
+  font-family: "Poller One", cursive;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("../img/bgd.jpg");
+  background-attachment: fixed;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 40px;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+.wrapper h1 {
+  font-size: 30px;
+}
+
+form {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+select {
+  background-color: black;
+  height: 30px;
+  margin: 5px 0;
+}
+
+.button,
+input[type="sumbit"],
+button {
+  background-color: black;
+  color: white;
+  font-family: "VT323", monospace;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  border: solid 2px white;
+  display: inline-block;
+  margin: 10px;
+}
+
+.button:hover,
+input[type="sumbit"]:hover,
+button:hover {
+  background-color: white;
+  color: black;
+}
+
+.button:disabled,
+input[type="sumbit"]:disabled,
+button:disabled {
+  background-color: gray;
+  color: black;
+}
+
+.action {
+  background: black;
+  border: solid 2px white;
+  border-radius: 4px;
+  padding: 20px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.img1,
+.img2 {
+  max-height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.img1 img,
+.img2 img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 680px;
+}
+
+.img1 img:before,
+.img2 img:before {
+  content: "";
+  border: 2px solid #e2c21e;
+}
+
+.buttons1, .buttons2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+/*# sourceMappingURL=style.css.map */
